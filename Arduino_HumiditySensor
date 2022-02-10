@@ -1,0 +1,22 @@
+void setup() {
+
+Serial.begin(9600); pinMode(A0, INPUT); pinMode(9, OUTPUT);
+
+}
+
+void loop() {
+int val = analogRead(A0);
+val = map(val, 0, 600, 0, 100);
+Serial.print("Humidité : ");
+Serial.print(val);
+Serial.print("%");
+Serial.print("\n");
+delay(750);
+if (analogRead(A0) > 500) { // turn on the green LED if there is no
+
+digitalWrite(9,HIGH); delay(500);
+}
+else { analogRead(A0) < 500;
+digitalWrite(9,LOW); delay(500);
+}
+}
